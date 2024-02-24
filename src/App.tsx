@@ -3,35 +3,44 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import msg from '/msg.jpg'
 import './App.css'
+import styled from '@emotion/styled'
+
+const ColorButton = styled.button`
+  background-color: transparent;
+  color: #000000;
+  border-radius: 0;
+`
+const Rhombus = styled.div`
+  width: 360px;
+  height: 360px;
+  background-color: red;
+  transform: rotate(45deg);
+`
+const RhombusContainer = styled.div`
+  transform: scaleY(0.5);
+`
+const ButtonContainer = styled.div`
+  height:100%;
+  transform: rotate(-45deg) scaleY(8) scaleX(2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState("즐겁다")
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://game.mahjongsoul.com" target="_blank">
-          <img src={msg} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <RhombusContainer>
+        <Rhombus>
+          <ButtonContainer>
+            <ColorButton onClick={() => setCount((count) => count + "즐겁다")}>
+              {count}
+            </ColorButton>
+          </ButtonContainer>
+        </Rhombus>
+      </RhombusContainer>
     </>
   )
 }
