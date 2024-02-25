@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
+import { useState } from "react";
+import { scripts } from "./scripts";
 
 const Container = styled.div`
   width: 100vw;
@@ -22,7 +24,7 @@ const BomImage = styled.img`
   height: min(90%, 1020px);
   position: absolute;
   bottom: 0;
-  right: min(40%, 480px);
+  right: 40%;
   transform: translate(50%, 0);
   user-select: none;
 `;
@@ -58,13 +60,19 @@ const TextContainer = styled.span`
 `;
 
 function App() {
+  const [script, setScript] = useState<string>("…마작 칠래?");
   return (
     <>
       <Container>
         <BackgroundImage src={mahjongBackground} />
-        <BomImage src={bom} />
+        <BomImage
+          src={bom}
+          onClick={() =>
+            setScript(scripts[Math.floor(Math.random() * scripts.length)])
+          }
+        />
         <TextBoxContainer>
-          <TextContainer>…론. 스안커 단기, 64000.</TextContainer>
+          <TextContainer> {script} </TextContainer>
         </TextBoxContainer>
       </Container>
     </>
