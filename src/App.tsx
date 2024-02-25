@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import bom from "/bom.png";
-import mahjongBackground from "/mahjong-background.jpg";
 import { useState } from "react";
 import { scripts } from "./scripts";
+import bom from "/bom.png";
+import mahjongBackground from "/mahjong-background.jpg";
 
 const Container = styled.div`
   width: 100vw;
@@ -44,6 +44,7 @@ const TextBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
 
   @media screen and (max-width: 720px) {
     left: 5vw;
