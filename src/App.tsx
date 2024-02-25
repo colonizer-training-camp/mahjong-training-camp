@@ -18,6 +18,7 @@ const BackgroundImage = styled.img`
   bottom: 0;
   object-fit: cover;
   z-index: -100;
+  user-select: none;
 `;
 
 const BomImage = styled.img`
@@ -44,7 +45,7 @@ const TextBoxContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 32px;
 
   @media screen and (max-width: 720px) {
     left: 5vw;
@@ -58,10 +59,11 @@ const TextContainer = styled.span`
   font-family: "TAEBAEKmilkyway";
   color: white;
   font-size: 1.2rem;
+  line-height: 2rem;
 `;
 
 function App() {
-  const [script, setScript] = useState<string>("…마작 칠래?");
+  const [script, setScript] = useState<string>(scripts[0]);
   return (
     <>
       <Container>
