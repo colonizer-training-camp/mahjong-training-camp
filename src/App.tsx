@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+import Menu from "./Menu";
 import { scripts } from "./scripts";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
@@ -33,7 +34,7 @@ const BomImage = styled.img`
 const TextBoxContainer = styled.div`
   width: 480px;
   height: 240px;
-  max-width: min(90vw, 720px);
+  max-width: 90vw;
   max-height: 50vh;
   background-color: #00000083;
   border-radius: 8px;
@@ -60,6 +61,7 @@ const TextContainer = styled.span`
   color: white;
   font-size: 1.2rem;
   line-height: 2rem;
+  word-break: keep-all;
 `;
 
 function App() {
@@ -78,6 +80,7 @@ function App() {
           <TextContainer> {script} </TextContainer>
         </TextBoxContainer>
       </Container>
+      <Menu />
     </>
   );
 }
