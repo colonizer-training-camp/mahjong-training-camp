@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import Menu from "./Menu";
+import TotalStat from "./TotalStat";
 import { scripts } from "./scripts";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
@@ -81,6 +82,7 @@ function App() {
         </TextBoxContainer>
       </Container>
       <Menu />
+      <TotalStat />
     </>
   );
 }
