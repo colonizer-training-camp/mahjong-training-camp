@@ -66,6 +66,7 @@ const TextContainer = styled.span`
 `;
 
 function App() {
+  const [scriptIndex, setScriptIndex] = useState<number>(0);
   const [script, setScript] = useState<string>(scripts[0]);
   return (
     <>
@@ -73,9 +74,17 @@ function App() {
         <BackgroundImage src={mahjongBackground} />
         <BomImage
           src={bom}
-          onClick={() =>
-            setScript(scripts[Math.floor(Math.random() * scripts.length)])
-          }
+          onClick={() => {
+            const randomIndex = Math.floor(
+              Math.random() * (scripts.length - 1)
+            );
+            setScript(
+              scripts[randomIndex < scriptIndex ? randomIndex : randomIndex + 1]
+            ); //random avoiding duplicated script
+            setScriptIndex(
+              randomIndex < scriptIndex ? randomIndex : randomIndex + 1
+            );
+          }}
         />
         <TextBoxContainer>
           <TextContainer> {script} </TextContainer>
