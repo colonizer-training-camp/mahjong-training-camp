@@ -56,18 +56,46 @@ const Menu = () => {
   return (
     <MenuContainer>
       <IconWrapper>
-        <IconContainer>
-          <IconPlus size={32} />
-        </IconContainer>
-        <IconContainer>
-          <IconChartBar size={32} />
-        </IconContainer>
-        <IconContainer>
-          <IconChartLine size={32} />
-        </IconContainer>
-        <IconContainer>
-          <IconHistory size={32} />
-        </IconContainer>
+        <a
+          href={
+            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=822958200"
+          }
+          target="_blank"
+        >
+          <IconContainer>
+            <IconPlus size={32} />
+          </IconContainer>
+        </a>
+        <a
+          href={
+            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631"
+          }
+          target="_blank"
+        >
+          <IconContainer>
+            <IconChartBar size={32} />
+          </IconContainer>
+        </a>
+        <a
+          href={
+            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631"
+          }
+          target="_blank"
+        >
+          <IconContainer>
+            <IconChartLine size={32} />
+          </IconContainer>
+        </a>
+        <a
+          href={
+            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=0"
+          }
+          target="_blank"
+        >
+          <IconContainer>
+            <IconHistory size={32} />
+          </IconContainer>
+        </a>
       </IconWrapper>
     </MenuContainer>
   );
