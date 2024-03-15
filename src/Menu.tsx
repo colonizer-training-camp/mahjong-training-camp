@@ -82,16 +82,11 @@ const Menu = () => {
             <IconChartLine size={32} />
           </IconContainer>
         </a>
-        <a
-          href={
-            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=0"
-          }
-          target="_blank"
-        >
+        <Link to="/history">
           <IconContainer>
             <IconHistory size={32} />
           </IconContainer>
-        </a>
+        </Link>
       </IconWrapper>
     </MenuContainer>
   );
