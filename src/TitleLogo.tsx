@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 
 const TotalStatContainer = styled.div`
@@ -9,7 +10,8 @@ const TotalStatContainer = styled.div`
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 100;
+  user-select: none;
+  z-index: 200;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -19,8 +21,10 @@ const TotalStatContainer = styled.div`
 
 const LogoContainer = styled.img`
   position: relative;
-  height: 80px;
-  object-fit: cover;
+  min-height: 80px;
+  max-width: 70vw;
+  object-fit: contain;
+  pointer-events: all;
 `;
 
 const TotalStatWrapper = styled.div`
@@ -34,6 +38,10 @@ const TotalStatWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const TotalStatCard = styled.div`
@@ -60,22 +68,32 @@ const TotalStatDetail = styled.div`
   font-size: 36px;
 `;
 
-const TotalStat = () => {
+interface TotalStatProps {
+  useTotalStats?: boolean;
+}
+
+const TitleLogo = (props: TotalStatProps) => {
+  const { useTotalStats } = props;
+
   return (
     <TotalStatContainer>
-      <LogoContainer src={logo} />
-      <TotalStatWrapper>
-        <TotalStatCard>
-          <TotalStatTitle>대국 수</TotalStatTitle>
-          <TotalStatDetail>37</TotalStatDetail>
-        </TotalStatCard>
-        <TotalStatCard>
-          <TotalStatTitle>작사 수</TotalStatTitle>
-          <TotalStatDetail>9</TotalStatDetail>
-        </TotalStatCard>
-      </TotalStatWrapper>
+      <Link to="/">
+        <LogoContainer src={logo} />
+      </Link>
+      {useTotalStats && (
+        <TotalStatWrapper>
+          <TotalStatCard>
+            <TotalStatTitle>대국 수</TotalStatTitle>
+            <TotalStatDetail>37</TotalStatDetail>
+          </TotalStatCard>
+          <TotalStatCard>
+            <TotalStatTitle>작사 수</TotalStatTitle>
+            <TotalStatDetail>9</TotalStatDetail>
+          </TotalStatCard>
+        </TotalStatWrapper>
+      )}
     </TotalStatContainer>
   );
 };
 
-export default TotalStat;
+export default TitleLogo;

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Stats from "./Stats";
+import Home from "./Home/Home";
+import Stats from "./Stats/Stats";
 
 const Router = () => {
   return (

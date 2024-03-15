@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import Menu from "./Menu";
-import TotalStat from "./TotalStat";
-import { scripts } from "./scripts";
+import Menu from "../Menu";
+import TitleLogo from "../TitleLogo";
+import { scripts } from "../scripts";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
 
@@ -92,7 +92,7 @@ const Home = () => {
         </TextBoxContainer>
       </Container>
       <Menu />
-      <TotalStat />
+      <TitleLogo useTotalStats />
     </>
   );
 };
