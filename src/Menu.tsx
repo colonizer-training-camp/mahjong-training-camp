@@ -5,6 +5,7 @@ import {
   IconHistory,
   IconPlus,
 } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 const MenuContainer = styled.div`
   position: relative;
@@ -66,16 +67,11 @@ const Menu = () => {
             <IconPlus size={32} />
           </IconContainer>
         </a>
-        <a
-          href={
-            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631"
-          }
-          target="_blank"
-        >
+        <Link to="/stats">
           <IconContainer>
             <IconChartBar size={32} />
           </IconContainer>
-        </a>
+        </Link>
         <a
           href={
             "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631"
