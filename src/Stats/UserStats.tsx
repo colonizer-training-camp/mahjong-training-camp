@@ -36,7 +36,7 @@ const CardFlexBox = styled.div`
 const HandleContainer = styled.div`
   position: relative;
   height: 16vh;
-  width: 720px;
+  width: 80vh;
   max-width: 90vw;
   display: flex;
   align-items: center;
@@ -68,9 +68,9 @@ const HandleBackground = styled.div`
 
 const CardContainer = styled.div`
   position: relative;
-  width: 720px;
+  width: 80vh;
   max-width: 90vw;
-  height: 480px;
+  height: 54vh;
   background-color: #212443d7;
   border-radius: 8px;
   display: flex;
@@ -80,13 +80,13 @@ const CardContainer = styled.div`
 `;
 
 const BomImage = styled.img`
-  height: 600px;
+  height: 68vh;
   position: absolute;
   bottom: 0;
   right: -30%;
   user-select: none;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1200px) {
     display: none;
   }
 `;
@@ -105,7 +105,7 @@ const RightPadding = styled.div`
   width: 20%;
   height: 100%;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1200px) {
     display: none;
   }
 `;
