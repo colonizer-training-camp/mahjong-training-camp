@@ -3,6 +3,7 @@ import {
   IconChartBar,
   IconChartLine,
   IconHistory,
+  IconHome,
   IconPlus,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
@@ -16,6 +17,10 @@ const MenuContainer = styled.div`
   left: 0;
   pointer-events: none;
   z-index: 100;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -57,6 +62,11 @@ const Menu = () => {
   return (
     <MenuContainer>
       <IconWrapper>
+        <Link to="/">
+          <IconContainer>
+            <IconHome size={32} />
+          </IconContainer>
+        </Link>
         <a
           href={
             "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=822958200"

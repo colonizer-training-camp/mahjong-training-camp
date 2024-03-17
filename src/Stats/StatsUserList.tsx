@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: absolute;
@@ -32,10 +33,11 @@ const ListItemContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
-  background-color: #0000007c;
+  background-color: #121020ba;
+  border-radius: 8px;
 
   &:hover {
-    background-color: #0000009c;
+    background-color: #000000c0;
   }
 `;
 
@@ -78,10 +80,15 @@ const StatsUserList = (props: StatUserListProps) => {
       <Container>
         <ListContainer>
           {users.map((user) => (
-            <ListItemContainer>
-              <ListItemImage src={user.profileImgUrl}></ListItemImage>
-              <ListItemHandle>{user.handle}</ListItemHandle>
-            </ListItemContainer>
+            <Link
+              to={`/stats/${user.handle}`}
+              style={{ textDecoration: "none" }}
+            >
+              <ListItemContainer>
+                <ListItemImage src={user.profileImgUrl}></ListItemImage>
+                <ListItemHandle>{user.handle}</ListItemHandle>
+              </ListItemContainer>
+            </Link>
           ))}
         </ListContainer>
       </Container>

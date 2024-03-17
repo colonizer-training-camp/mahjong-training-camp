@@ -25,6 +25,10 @@ const LogoContainer = styled.img`
   max-width: 70vw;
   object-fit: contain;
   pointer-events: all;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const TotalStatWrapper = styled.div`
