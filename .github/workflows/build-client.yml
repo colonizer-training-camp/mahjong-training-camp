@@ -33,7 +33,7 @@ jobs:
       - name: Deploy
         uses: reggionick/s3-deploy@v3
         with:
-          folder: out
+          folder: dist
           bucket: ${{ vars.S3_BUCKET_PRODUCTION }}
           bucket-region: ${{ vars.S3_BUCKET_REGION }}
           dist-id: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID_PRODUCTION }}
