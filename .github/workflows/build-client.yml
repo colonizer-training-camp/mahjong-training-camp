@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: Make .env
+        run: |
+          touch ./.env.local
+          echo VITE_API_ENDPOINT=${{ vars.PUBLIC_API_ENDPOINT }} >> ./.env.local
       - name: Install dependencies
         run: yarn
       - name: Build
