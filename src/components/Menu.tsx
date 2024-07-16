@@ -10,7 +10,6 @@ import {
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { color } from "../styles/colors";
-import { lighten } from "polished";
 
 const MenuContainer = styled.div`
   position: relative;
@@ -110,8 +109,8 @@ const IconContainer = styled.div`
     border-radius: 0;
     background: linear-gradient(
       to bottom,
-      ${color.darkGray},
-      ${lighten(0.1, color.darkGray)}
+      ${color.silkBlue},
+      ${color.silkBlueLight}
     );
     border-top: 4px solid #d4af86;
     box-shadow: none;

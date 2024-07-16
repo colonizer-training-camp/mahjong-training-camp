@@ -141,6 +141,12 @@ export const reset = css`
     cursor: pointer;
     outline: inherit;
   }
+  input[type="text"],
+  input[type="password"] {
+    appearance: none;
+    border-radius: 0;
+    font: inherit;
+  }
   * {
     box-sizing: border-box;
   }

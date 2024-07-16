@@ -48,7 +48,7 @@ const HandleBackground = styled.div`
   bottom: 16px;
   background-image: linear-gradient(
     to right,
-    ${color.darkGray},
+    ${color.silkBlue},
     rgba(33, 36, 67, 0)
   );
   height: 64px;

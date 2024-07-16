@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HistoryPage from "./pages/history/HistoryPage";
 import HomePage from "./pages/HomePage";
-import UserStatsPage from "./pages/stats/:handle/UserStatsPage";
+import HistoryPage from "./pages/history/HistoryPage";
 import LoginPage from "./pages/login/LoginPage";
+import LogoutPage from "./pages/logout/LogoutPage";
+import UserStatsPage from "./pages/stats/:handle/UserStatsPage";
 import StatsPage from "./pages/stats/StatsPage";
 
 const Router = () => {
@@ -16,6 +17,7 @@ const Router = () => {
         </Route>
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
       </Routes>
     </BrowserRouter>
   );
