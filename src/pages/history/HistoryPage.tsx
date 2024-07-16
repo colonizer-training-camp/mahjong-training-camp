@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import DefaultLayout from "../../components/layouts/DefaultLayout";
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;

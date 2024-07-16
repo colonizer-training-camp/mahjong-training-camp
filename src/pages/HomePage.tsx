@@ -6,7 +6,7 @@ import { commons } from "../styles/commons";
 import bom from "/bom.png";
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -39,7 +39,7 @@ const TextBoxContainer = styled.div`
 
   @media screen and (max-width: 720px) {
     left: 5vw;
-    bottom: 5vw;
+    bottom: calc(5vw + 72px);
     width: 90vw;
     height: 20%;
   }
@@ -57,7 +57,7 @@ const HomePage = () => {
   const [script, setScript] = useState<string>(MAIN_SCRIPTS[0]);
 
   return (
-    <DefaultLayout useTotalStats>
+    <DefaultLayout useTotalStats fullScreen>
       <Container>
         <BomImage
           src={bom}

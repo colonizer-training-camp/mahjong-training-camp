@@ -9,29 +9,63 @@ import {
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { color } from "../styles/colors";
+import { lighten } from "polished";
 
 const MenuContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 100;
+
+  @media screen and (max-width: 720px) {
+    top: unset;
+    bottom: 0;
+    height: 72px;
+    width: 100%;
+  }
 `;
 
 const Icons = styled.div`
   height: 100%;
-  position: fixed;
   right: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   padding: 32px;
   gap: 16px;
   pointer-events: all;
+
+  @media screen and (max-width: 720px) {
+    padding: 0;
+    gap: 0;
+    flex-direction: row;
+  }
+`;
+
+const IconLink = styled(Link)`
+  display: block;
+  @media screen and (max-width: 720px) {
+    width: unset;
+    height: 100%;
+    flex: 1 0 0;
+    min-width: 0;
+  }
+`;
+
+const IconLinkExternal = styled.a`
+  display: block;
+  @media screen and (max-width: 720px) {
+    width: unset;
+    height: 100%;
+    flex: 1 0 0;
+    min-width: 0;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -68,6 +102,27 @@ const IconContainer = styled.div`
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: linear-gradient(
+      to bottom,
+      ${color.darkGray},
+      ${lighten(0.1, color.darkGray)}
+    );
+    border-top: 4px solid #d4af86;
+    box-shadow: none;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      transform: none;
+    }
   }
 `;
 
@@ -123,13 +178,13 @@ const Menu = () => {
           return true;
         }).map((item, index) =>
           /https?:\/\//.test(item.link) ? (
-            <a href={item.link} target="_blank" key={index}>
+            <IconLinkExternal href={item.link} target="_blank" key={index}>
               <IconContainer>{item.icon}</IconContainer>
-            </a>
+            </IconLinkExternal>
           ) : (
-            <Link to={item.link} key={index}>
+            <IconLink to={item.link} key={index}>
               <IconContainer>{item.icon}</IconContainer>
-            </Link>
+            </IconLink>
           )
         )}
       </Icons>
