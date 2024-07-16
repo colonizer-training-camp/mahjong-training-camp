@@ -1,4 +1,4 @@
-export const scripts = [
+export const MAIN_SCRIPTS = [
   "…마작 칠래?",
   "…론. 스안커 단기, 64000.",
   "…리치 쯔모 또이또이 도라 3 우라 3. 16000씩 주세요.",

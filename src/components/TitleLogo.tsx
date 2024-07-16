@@ -16,7 +16,7 @@ const TotalStatContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 32px;
+  padding: 32px 0;
 `;
 
 const LogoContainer = styled.img`
@@ -25,22 +25,17 @@ const LogoContainer = styled.img`
   max-width: 70vw;
   object-fit: contain;
   pointer-events: all;
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 `;
 
 const TotalStatWrapper = styled.div`
   position: relative;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 200px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 24px;
   gap: 24px;
 
   @media screen and (max-width: 600px) {
@@ -55,7 +50,6 @@ const TotalStatCard = styled.div`
   background-color: #221e4baf;
   border-radius: 4px;
   color: white;
-  font-family: "TAEBAEKmilkyway", serif;
   padding: 16px;
   padding-bottom: 32px;
   display: flex;

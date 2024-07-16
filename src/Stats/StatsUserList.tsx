@@ -57,7 +57,6 @@ const ListItemHandle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "TAEBAEKmilkyway";
   color: white;
   font-size: 20px;
   word-break: keep-all;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Menu from "../Menu";
-import TitleLogo from "../TitleLogo";
+import Menu from "../components/Menu";
+import TitleLogo from "../components/TitleLogo";
 import bomHello from "/bom_hello.jpg";
 
 const Container = styled.div`

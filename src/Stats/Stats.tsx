@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import Menu from "../Menu";
-import TitleLogo from "../TitleLogo";
+import Menu from "../components/Menu";
+import TitleLogo from "../components/TitleLogo";
 import StatsUserList, { UserInfo } from "./StatsUserList";
 import mahjongBackground from "/mahjong-background.jpg";
 

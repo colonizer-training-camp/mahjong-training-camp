@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
-import Menu from "../Menu";
-import TitleLogo from "../TitleLogo";
+import Menu from "../components/Menu";
+import TitleLogo from "../components/TitleLogo";
+import { color } from "../styles/colors";
+import { commons } from "../styles/commons";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
+import { fontFamilies } from "../styles/fonts";
 
 const Container = styled.div`
   width: 100vw;
@@ -44,11 +47,11 @@ const HandleContainer = styled.div`
 `;
 
 const Handle = styled.div`
+  ${fontFamilies.kimDaegon}
   position: absolute;
   font-size: 2rem;
   bottom: 32px;
   left: 16px;
-  font-family: "kdg_Medium", sans-serif;
   color: #debc80;
 `;
 
@@ -57,7 +60,7 @@ const HandleBackground = styled.div`
   bottom: 16px;
   background-image: linear-gradient(
     to right,
-    rgba(33, 36, 67, 1),
+    ${color.darkGray},
     rgba(33, 36, 67, 0)
   );
   height: 64px;
@@ -67,12 +70,11 @@ const HandleBackground = styled.div`
 `;
 
 const CardContainer = styled.div`
+  ${commons.card}
   position: relative;
   width: 80vh;
   max-width: 90vw;
   height: 54vh;
-  background-color: #212443d7;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,7 +183,7 @@ const AverageRankContainer = styled.div`
 `;
 
 const GeneralStatsTitle = styled.div`
-  font-family: "kdg_Medium", serif;
+  ${fontFamilies.kimDaegon}
   color: #debc80;
   font-size: 1.2rem;
 `;
@@ -202,7 +204,6 @@ const GeneralStatsSubTitleTextContainer = styled.div`
 `;
 
 const GeneralStatsSubTitle = styled.div`
-  font-family: "TAEBAEKmilkyway", serif;
   color: #debc80;
   font-size: 0.8rem;
   word-break: keep-all;
@@ -224,7 +225,7 @@ const GeneralStatsNumberTextContainer = styled.div`
 `;
 
 const GeneralStatsNumber = styled.div`
-  font-family: "kdg_Medium", serif;
+  ${fontFamilies.kimDaegon}
   color: #debc80;
   font-size: 1.4rem;
 
@@ -248,13 +249,13 @@ const RankingStatsDetailContainer = styled.div`
 `;
 
 const RankingStatsDetailRankText = styled.div`
-  font-family: "kdg_Medium", serif;
+  ${fontFamilies.kimDaegon}
   color: #debc80;
   font-size: 1.6rem;
 `;
 
 const RankingStatsDetailNumberText = styled.div`
-  font-family: "kdg_Medium", serif;
+  ${fontFamilies.kimDaegon}
   color: #debc80;
   font-size: 1.2rem;
 `;

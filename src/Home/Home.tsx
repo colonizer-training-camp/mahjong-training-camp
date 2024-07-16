@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import Menu from "../Menu";
-import TitleLogo from "../TitleLogo";
-import { scripts } from "../scripts";
+import Menu from "../components/Menu";
+import TitleLogo from "../components/TitleLogo";
+import { MAIN_SCRIPTS } from "../constants/scripts";
 import bom from "/bom.png";
 import mahjongBackground from "/mahjong-background.jpg";
+import { commons } from "../styles/commons";
 
 const Container = styled.div`
   width: 100vw;
@@ -33,12 +34,11 @@ const BomImage = styled.img`
 `;
 
 const TextBoxContainer = styled.div`
+  ${commons.card}
   width: 480px;
   height: 240px;
   max-width: 90vw;
   max-height: 50vh;
-  background-color: #00000083;
-  border-radius: 8px;
   position: absolute;
   left: 20%;
   bottom: 15%;
@@ -58,7 +58,6 @@ const TextBoxContainer = styled.div`
 `;
 
 const TextContainer = styled.span`
-  font-family: "TAEBAEKmilkyway";
   color: white;
   font-size: 1.2rem;
   line-height: 2rem;
@@ -67,7 +66,7 @@ const TextContainer = styled.span`
 
 const Home = () => {
   const [scriptIndex, setScriptIndex] = useState<number>(0);
-  const [script, setScript] = useState<string>(scripts[0]);
+  const [script, setScript] = useState<string>(MAIN_SCRIPTS[0]);
 
   return (
     <>
@@ -77,10 +76,12 @@ const Home = () => {
           src={bom}
           onClick={() => {
             const randomIndex = Math.floor(
-              Math.random() * (scripts.length - 1)
+              Math.random() * (MAIN_SCRIPTS.length - 1)
             );
             setScript(
-              scripts[randomIndex < scriptIndex ? randomIndex : randomIndex + 1]
+              MAIN_SCRIPTS[
+                randomIndex < scriptIndex ? randomIndex : randomIndex + 1
+              ]
             ); //random avoiding duplicated script
             setScriptIndex(
               randomIndex < scriptIndex ? randomIndex : randomIndex + 1

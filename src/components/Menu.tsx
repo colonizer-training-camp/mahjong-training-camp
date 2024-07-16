@@ -17,41 +17,52 @@ const MenuContainer = styled.div`
   left: 0;
   pointer-events: none;
   z-index: 100;
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 `;
 
-const IconWrapper = styled.div`
-  width: 120px;
+const Icons = styled.div`
   height: 100%;
   position: fixed;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  right: 0;
-  padding-top: 32px;
-  gap: 32px;
+  padding: 32px;
+  gap: 16px;
   pointer-events: all;
 `;
 
 const IconContainer = styled.div`
   width: 64px;
   height: 64px;
-  background: #d7ada9;
-  color: #ddb86d;
+  position: relative;
+  background-image: linear-gradient(to bottom, #9c6145, #b5835b, #c29569);
+  color: #d4af86;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999999px;
-  border: 4px solid #ddb86d;
+  border-radius: 9999px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  background-image: url("/wood_texture.png");
-  background-blend-mode: multiply;
   background-size: cover;
   transition: 0.1s ease-in-out;
+
+  &::before {
+    border-radius: 100%;
+    content: "";
+    background: #5d3125;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    box-shadow: inset 0 -2px 2px #3e1a16;
+  }
+
+  & > svg {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(2px 2px 2px rgba(230, 208, 183, 0.3));
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -61,10 +72,10 @@ const IconContainer = styled.div`
 const Menu = () => {
   return (
     <MenuContainer>
-      <IconWrapper>
+      <Icons>
         <Link to="/">
           <IconContainer>
-            <IconHome size={32} />
+            <IconHome />
           </IconContainer>
         </Link>
         <a
@@ -74,12 +85,12 @@ const Menu = () => {
           target="_blank"
         >
           <IconContainer>
-            <IconPlus size={32} />
+            <IconPlus />
           </IconContainer>
         </a>
         <Link to="/stats">
           <IconContainer>
-            <IconChartBar size={32} />
+            <IconChartBar />
           </IconContainer>
         </Link>
         <a
@@ -89,15 +100,15 @@ const Menu = () => {
           target="_blank"
         >
           <IconContainer>
-            <IconChartLine size={32} />
+            <IconChartLine />
           </IconContainer>
         </a>
         <Link to="/history">
           <IconContainer>
-            <IconHistory size={32} />
+            <IconHistory />
           </IconContainer>
         </Link>
-      </IconWrapper>
+      </Icons>
     </MenuContainer>
   );
 };

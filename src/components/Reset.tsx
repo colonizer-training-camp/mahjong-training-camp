@@ -141,20 +141,6 @@ export const reset = css`
     cursor: pointer;
     outline: inherit;
   }
-  @font-face {
-    font-family: "TAEBAEKmilkyway";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKmilkyway.woff2")
-      format("woff2");
-    font-weight: normal;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "kdg_Medium";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/kdg_Medium.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
   * {
     box-sizing: border-box;
   }
