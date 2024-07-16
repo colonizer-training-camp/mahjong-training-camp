@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import Menu from "../Menu";
+import Menu from "../menu/Menu";
 import TitleLogo from "../TitleLogo";
 import { Global, css } from "@emotion/react";
 import mahjongBackground from "/mahjong-background.jpg";

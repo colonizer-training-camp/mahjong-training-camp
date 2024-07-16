@@ -3,6 +3,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -52,6 +53,10 @@ export const AuthContextProvider = ({ children }: PropsWithChildren) => {
   const logout = useCallback(async () => {
     await api.post("/auth/logout");
     await refresh();
+  }, [refresh]);
+
+  useEffect(() => {
+    refresh();
   }, [refresh]);
 
   const values = useMemo(
