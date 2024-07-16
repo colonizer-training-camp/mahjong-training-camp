@@ -22,7 +22,7 @@ const IconContainer = styled.div`
   border-radius: 9999px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   background-size: cover;
-  transition: 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 
   &::before {
     border-radius: 100%;
