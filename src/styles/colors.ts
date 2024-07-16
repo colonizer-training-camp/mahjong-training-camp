@@ -4,5 +4,7 @@ export const color = {
   silkBlueDark: "#0b101c",
   silkBlueSecondaryText: "#8e93bd",
   goldLight: "#e6b06f",
+  goldText: "#e6be78",
+  goldTextLight: "#f9e394",
   backdropGray: "#1c1c1c",
 };

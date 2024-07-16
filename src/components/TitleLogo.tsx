@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import logo from "/logo.svg";
+import { Header } from "./header/Header";
+import { useAuth } from "../contexts/AuthContext";
 
 const TotalStatContainer = styled.div`
   position: relative;
@@ -17,14 +18,6 @@ const TotalStatContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   padding: 32px 0;
-`;
-
-const LogoContainer = styled.img`
-  position: relative;
-  min-height: 80px;
-  max-width: 70vw;
-  object-fit: contain;
-  pointer-events: all;
 `;
 
 const TotalStatWrapper = styled.div`
@@ -66,18 +59,29 @@ const TotalStatDetail = styled.div`
   font-size: 36px;
 `;
 
+const HeaderLink = styled(Link)`
+  pointer-events: all;
+  text-decoration: none;
+`;
+
 interface TotalStatProps {
   useTotalStats?: boolean;
 }
 
 const TitleLogo = (props: TotalStatProps) => {
+  const { user } = useAuth();
   const { useTotalStats } = props;
 
   return (
     <TotalStatContainer>
-      <Link to="/">
-        <LogoContainer src={logo} />
-      </Link>
+      <HeaderLink
+        to="/"
+        style={{
+          textDecoration: "none",
+        }}
+      >
+        <Header>{user?.displayName || "개척단 훈련소"}</Header>
+      </HeaderLink>
       {useTotalStats && (
         <TotalStatWrapper>
           <TotalStatCard>

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
+import { Header } from "../../../components/header/Header";
 import DefaultLayout from "../../../components/layouts/DefaultLayout";
-import { color } from "../../../styles/colors";
 import { commons } from "../../../styles/commons";
 import { fontFamilies } from "../../../styles/fonts";
 import bom from "/bom.png";
@@ -32,29 +32,6 @@ const HandleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-`;
-
-const Handle = styled.div`
-  ${fontFamilies.kimDaegon}
-  position: absolute;
-  font-size: 2rem;
-  bottom: 32px;
-  left: 16px;
-  color: #debc80;
-`;
-
-const HandleBackground = styled.div`
-  position: absolute;
-  bottom: 16px;
-  background-image: linear-gradient(
-    to right,
-    ${color.silkBlue},
-    rgba(33, 36, 67, 0)
-  );
-  height: 64px;
-  width: 60%;
-  border-top: 2px solid #debc80;
-  border-bottom: 2px solid #debc80;
 `;
 
 const CardContainer = styled.div`
@@ -263,8 +240,7 @@ const UserStatsPage = () => {
       <Container>
         <CardFlexBox>
           <HandleContainer>
-            <HandleBackground />
-            <Handle>{handle}</Handle>
+            <Header>{handle}</Header>
           </HandleContainer>
           <CardContainer>
             <StatsContainer>
