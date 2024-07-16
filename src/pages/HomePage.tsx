@@ -1,27 +1,15 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import Menu from "../components/Menu";
-import TitleLogo from "../components/TitleLogo";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 import { MAIN_SCRIPTS } from "../constants/scripts";
-import bom from "/bom.png";
-import mahjongBackground from "/mahjong-background.jpg";
 import { commons } from "../styles/commons";
+import bom from "/bom.png";
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
-`;
-
-const BackgroundImage = styled.img`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  object-fit: cover;
-  z-index: -100;
-  user-select: none;
 `;
 
 const BomImage = styled.img`
@@ -64,14 +52,13 @@ const TextContainer = styled.span`
   word-break: keep-all;
 `;
 
-const Home = () => {
+const HomePage = () => {
   const [scriptIndex, setScriptIndex] = useState<number>(0);
   const [script, setScript] = useState<string>(MAIN_SCRIPTS[0]);
 
   return (
-    <>
+    <DefaultLayout useTotalStats>
       <Container>
-        <BackgroundImage src={mahjongBackground} />
         <BomImage
           src={bom}
           onClick={() => {
@@ -92,10 +79,8 @@ const Home = () => {
           <TextContainer> {script} </TextContainer>
         </TextBoxContainer>
       </Container>
-      <Menu />
-      <TitleLogo useTotalStats />
-    </>
+    </DefaultLayout>
   );
 };
 
-export default Home;
+export default HomePage;

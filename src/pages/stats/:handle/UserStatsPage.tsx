@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
-import Menu from "../components/Menu";
-import TitleLogo from "../components/TitleLogo";
-import { color } from "../styles/colors";
-import { commons } from "../styles/commons";
+import DefaultLayout from "../../../components/layouts/DefaultLayout";
+import { color } from "../../../styles/colors";
+import { commons } from "../../../styles/commons";
+import { fontFamilies } from "../../../styles/fonts";
 import bom from "/bom.png";
-import mahjongBackground from "/mahjong-background.jpg";
-import { fontFamilies } from "../styles/fonts";
 
 const Container = styled.div`
   width: 100vw;
@@ -14,16 +12,6 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
   display: flex;
-`;
-
-const BackgroundImage = styled.img`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  object-fit: cover;
-  z-index: -100;
-  user-select: none;
 `;
 
 const CardFlexBox = styled.div`
@@ -267,13 +255,12 @@ const DashedDivider = styled.div`
   border-bottom: 1px dashed #debc80;
 `;
 
-const UserStats = () => {
+const UserStatsPage = () => {
   const { handle } = useParams();
 
   return (
-    <>
+    <DefaultLayout>
       <Container>
-        <BackgroundImage src={mahjongBackground} />
         <CardFlexBox>
           <HandleContainer>
             <HandleBackground />
@@ -395,10 +382,8 @@ const UserStats = () => {
           </CardContainer>
         </CardFlexBox>
       </Container>
-      <Menu />
-      <TitleLogo />
-    </>
+    </DefaultLayout>
   );
 };
 
-export default UserStats;
+export default UserStatsPage;

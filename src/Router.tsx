@@ -1,19 +1,21 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import History from "./History/History";
-import Home from "./Home/Home";
-import Stats from "./Stats/Stats";
-import UserStats from "./Stats/UserStats";
+import HistoryPage from "./pages/history/HistoryPage";
+import HomePage from "./pages/HomePage";
+import UserStatsPage from "./pages/stats/:handle/UserStatsPage";
+import LoginPage from "./pages/login/LoginPage";
+import StatsPage from "./pages/stats/StatsPage";
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/stats">
-          <Route path="" element={<Stats />} />
-          <Route path=":handle" element={<UserStats />} />
+          <Route path="" element={<StatsPage />} />
+          <Route path=":handle" element={<UserStatsPage />} />
         </Route>
-        <Route path="/history" element={<History />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

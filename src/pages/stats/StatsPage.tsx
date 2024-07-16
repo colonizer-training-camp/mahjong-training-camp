@@ -1,24 +1,12 @@
 import styled from "@emotion/styled";
-import Menu from "../components/Menu";
-import TitleLogo from "../components/TitleLogo";
+import DefaultLayout from "../../components/layouts/DefaultLayout";
 import StatsUserList, { UserInfo } from "./StatsUserList";
-import mahjongBackground from "/mahjong-background.jpg";
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
-`;
-
-const BackgroundImage = styled.img`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  object-fit: cover;
-  z-index: -100;
-  user-select: none;
 `;
 
 const USER_LIST: UserInfo[] = [
@@ -47,14 +35,11 @@ const USER_LIST: UserInfo[] = [
 
 const Stats = () => {
   return (
-    <>
+    <DefaultLayout>
       <Container>
-        <BackgroundImage src={mahjongBackground} />
         <StatsUserList users={USER_LIST} />
       </Container>
-      <Menu />
-      <TitleLogo />
-    </>
+    </DefaultLayout>
   );
 };
 

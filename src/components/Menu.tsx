@@ -3,10 +3,12 @@ import {
   IconChartBar,
   IconChartLine,
   IconHistory,
-  IconHome,
+  IconLogin,
+  IconLogout,
   IconPlus,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 const MenuContainer = styled.div`
   position: relative;
@@ -69,45 +71,67 @@ const IconContainer = styled.div`
   }
 `;
 
+interface MenuItem {
+  icon: React.ReactNode;
+  link: string;
+  authState?: "logged-in" | "logged-out";
+}
+
+const MENU_ITEMS: MenuItem[] = [
+  {
+    icon: <IconLogin />,
+    link: "/login",
+    authState: "logged-out",
+  },
+  {
+    icon: <IconPlus />,
+    link: "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=822958200",
+    authState: "logged-in",
+  },
+  {
+    icon: <IconChartBar />,
+    link: "/stats",
+  },
+  {
+    icon: <IconChartLine />,
+    link: "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631",
+  },
+  {
+    icon: <IconHistory />,
+    link: "/history",
+  },
+  {
+    icon: <IconLogout />,
+    link: "/logout",
+    authState: "logged-in",
+  },
+];
+
 const Menu = () => {
+  const { user } = useAuth();
+
   return (
     <MenuContainer>
       <Icons>
-        <Link to="/">
-          <IconContainer>
-            <IconHome />
-          </IconContainer>
-        </Link>
-        <a
-          href={
-            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=822958200"
+        {MENU_ITEMS.filter(({ authState }) => {
+          if (authState === "logged-in") {
+            return !!user;
           }
-          target="_blank"
-        >
-          <IconContainer>
-            <IconPlus />
-          </IconContainer>
-        </a>
-        <Link to="/stats">
-          <IconContainer>
-            <IconChartBar />
-          </IconContainer>
-        </Link>
-        <a
-          href={
-            "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=782332631"
+          if (authState === "logged-out") {
+            return !user;
           }
-          target="_blank"
-        >
-          <IconContainer>
-            <IconChartLine />
-          </IconContainer>
-        </a>
-        <Link to="/history">
-          <IconContainer>
-            <IconHistory />
-          </IconContainer>
-        </Link>
+          return true;
+        }).map((item, index) =>
+          /https?:\/\//.test(item.link) ? (
+            <a href={item.link} target="_blank" key={index}>
+              <IconContainer>{item.icon}</IconContainer>
+            </a>
+          ) : (
+            <Link to={item.link} key={index}>
+              <IconContainer>{item.icon}</IconContainer>
+            </Link>
+          )
+        )}
       </Icons>
     </MenuContainer>
   );
