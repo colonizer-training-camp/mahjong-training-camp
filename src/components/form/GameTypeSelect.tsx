@@ -6,12 +6,12 @@ import {
   IconTriangleInverted,
   TablerIconsProps,
 } from "@tabler/icons-react";
-import useGameTypes from "../../api/useGameTypes";
+import { useEffect } from "react";
+import { useGlobals } from "../../contexts/GlobalsContext";
+import { color } from "../../styles/colors";
+import { GameTypeResponse } from "../../types/GameTypeResponse";
 import Option from "../commons/Option";
 import Select from "../commons/Select";
-import { useEffect } from "react";
-import { GameTypeResponse } from "../../types/GameTypeResponse";
-import { color } from "../../styles/colors";
 
 const GameOption = styled.div`
   display: flex;
@@ -20,8 +20,8 @@ const GameOption = styled.div`
 `;
 
 interface Props {
-  value: string | null;
-  onChange?: (value: string) => void;
+  value: GameTypeResponse | null;
+  onChange?: (value: GameTypeResponse) => void;
   setToDefault?: boolean;
 }
 
@@ -39,11 +39,11 @@ const Icon = ({
 };
 
 const GameTypeSelect = ({ value, onChange, setToDefault }: Props) => {
-  const gameTypes = useGameTypes();
+  const { gameTypes } = useGlobals();
 
   useEffect(() => {
-    if (!value && gameTypes && onChange && setToDefault) {
-      onChange(gameTypes[0].type);
+    if (!value && gameTypes?.length && onChange && setToDefault) {
+      onChange(gameTypes[0]);
     }
   }, [gameTypes, onChange, setToDefault, value]);
 
@@ -58,23 +58,22 @@ const GameTypeSelect = ({ value, onChange, setToDefault }: Props) => {
         if (v) onChange?.(v);
       }}
       renderValue={(v) => {
-        const gameType = gameTypes.find((gt) => gt.type === v?.value);
-        return gameType ? (
+        return v ? (
           <GameOption>
             <Icon
-              game={gameType}
+              game={v.value}
               iconProps={{
                 color: color.goldText,
               }}
             />
-            {gameType.displayName.ko}
+            {v.value.displayName.ko}
           </GameOption>
         ) : null;
       }}
-      getOptionAsString={(v) => v.value}
+      getOptionAsString={(v) => v.value.displayName.ko}
     >
       {gameTypes.map((gameType) => (
-        <Option key={gameType.type} value={gameType.type}>
+        <Option key={gameType.type} value={gameType}>
           <GameOption>
             <Icon game={gameType} />
             {gameType.displayName.ko}

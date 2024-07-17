@@ -1,50 +1,32 @@
 import styled from "@emotion/styled";
 import { Option as MuiOption, optionClasses } from "@mui/base";
-import { color } from "../../styles/colors";
+import { option } from "../../styles/option";
 
 const Option = styled(MuiOption)`
-  list-style: none;
-  padding: 8px;
-  cursor: default;
-
-  &:last-of-type {
-    border-bottom: none;
-  }
+  ${option.base}
 
   &.${optionClasses.selected} {
-    background-image: linear-gradient(
-      to right,
-      ${color.goldLight},
-      ${color.silkBlue}
-    );
-    color: ${color.silkBlue};
+    ${option.selected}
   }
 
   &.${optionClasses.highlighted} {
-    background-color: ${color.silkBlueLight};
-    outline: 1px solid ${color.goldLight};
-    color: white;
+    ${option.highlighted}
   }
 
   &:focus-visible {
-    outline: 1px solid ${color.goldLight};
+    ${option.focusVisible}
   }
 
   &.${optionClasses.highlighted}.${optionClasses.selected} {
-    background-image: linear-gradient(
-      to right,
-      ${color.goldLight},
-      ${color.silkBlueLight}
-    );
-    color: ${color.silkBlue};
+    ${option.highlightedSelected}
   }
 
   &.${optionClasses.disabled} {
-    color: ${color.silkBlueSecondaryText};
+    ${option.disabled}
   }
 
   &:hover:not(.${optionClasses.disabled}) {
-    background-color: ${color.silkBlueLight};
+    ${option.hover}
   }
 `;
 

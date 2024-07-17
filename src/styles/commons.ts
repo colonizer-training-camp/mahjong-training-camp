@@ -23,7 +23,28 @@ const primaryButton = css`
   }
 `;
 
+const textFieldBase = css`
+  ${fontFamilies.milkyway}
+  font-size: 1rem;
+  color: white;
+`;
+
+const textField = css`
+  ${textFieldBase}
+  height: 48px;
+  padding: 0 8px;
+  background-color: ${color.silkBlueDark};
+  border: 1px solid ${color.silkBlueLight};
+
+  &:focus,
+  &:hover {
+    border: 1px solid ${color.goldLight};
+  }
+`;
+
 export const commons = {
   card,
   primaryButton,
+  textFieldBase,
+  textField,
 };
