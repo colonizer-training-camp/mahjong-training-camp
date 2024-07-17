@@ -16,7 +16,7 @@ const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
   const { user } = useAuth();
   const { jyanshis } = useGlobals();
 
-  const [initialSetToMyself, setInitialSetToMyself] = useState(setToMyself);
+  const [initialSetToMyself, setInitialSetToMyself] = useState(false);
 
   useEffect(() => {
     if (
@@ -62,10 +62,11 @@ const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
       filterOptions={filterJyanshi}
       isOptionEqualToValue={(o, v) => o.userId === v?.userId}
       value={value}
-      onChange={(_, v) => onChange?.(v)}
-      autoSelect
-      autoComplete
-      autoHighlight
+      onChange={(_, v, reason) => {
+        if (reason === "selectOption" || reason === "blur") {
+          onChange?.(v);
+        }
+      }}
       slotProps={
         fullWidth
           ? {
@@ -77,6 +78,9 @@ const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
             }
           : undefined
       }
+      autoSelect
+      autoComplete
+      autoHighlight
     />
   );
 };

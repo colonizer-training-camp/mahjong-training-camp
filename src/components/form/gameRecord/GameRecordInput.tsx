@@ -49,6 +49,7 @@ const GameRecordInput = ({ gameType, value, onChange }: Props) => {
     gameType,
     value: value[index],
     onChange: (v: GameRecordInputValues) => handleChangeIndex(index, v),
+    key: index,
   });
 
   if (players === 4) {
