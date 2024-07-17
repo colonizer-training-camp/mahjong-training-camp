@@ -1,5 +1,5 @@
 import { FilterOptionsState } from "@mui/base";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { useGlobals } from "../../contexts/GlobalsContext";
 import { UserResponse } from "../../types/UserResponse";
@@ -7,16 +7,28 @@ import Autocomplete from "../commons/Autocomplete";
 
 interface Props {
   value: UserResponse | null;
+  exceptIds?: number[];
   onChange?: (value: UserResponse | null) => void;
   setToMyself?: boolean;
   fullWidth?: boolean;
 }
 
-const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
+const JyanshiSelect = ({
+  value,
+  exceptIds,
+  onChange,
+  setToMyself,
+  fullWidth,
+}: Props) => {
   const { user } = useAuth();
   const { jyanshis } = useGlobals();
 
   const [initialSetToMyself, setInitialSetToMyself] = useState(false);
+
+  const filteredJyanshis = useMemo(
+    () => (jyanshis || []).filter((x) => !exceptIds?.includes(x.userId)),
+    [exceptIds, jyanshis]
+  );
 
   useEffect(() => {
     if (
@@ -56,7 +68,7 @@ const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
 
   return (
     <Autocomplete
-      options={jyanshis}
+      options={filteredJyanshis}
       getOptionKey={(x) => x.userId}
       getOptionLabel={(x) => x.displayName}
       filterOptions={filterJyanshi}
@@ -78,9 +90,10 @@ const JyanshiSelect = ({ value, onChange, setToMyself, fullWidth }: Props) => {
             }
           : undefined
       }
-      autoSelect
+      // autoSelect
       autoComplete
       autoHighlight
+      filterSelectedOptions
     />
   );
 };

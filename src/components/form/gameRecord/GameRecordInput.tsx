@@ -48,6 +48,7 @@ const GameRecordInput = ({ gameType, value, onChange }: Props) => {
     index,
     gameType,
     value: value[index],
+    selectedJyanshis: value.map((v) => v.jyanshi?.userId ?? -1),
     onChange: (v: GameRecordInputValues) => handleChangeIndex(index, v),
     key: index,
   });

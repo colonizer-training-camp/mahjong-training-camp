@@ -47,6 +47,7 @@ const WindCheckbox = styled.span<{ oya: boolean }>`
 
 interface Props {
   index: number;
+  selectedJyanshis: number[];
   gridColumn: number;
   gameType: GameTypeResponse;
   value: GameRecordInputValues;
@@ -55,6 +56,7 @@ interface Props {
 
 const GameRecordSingleUserInput = ({
   index,
+  selectedJyanshis,
   gridColumn,
   gameType,
   value,
@@ -111,6 +113,7 @@ const GameRecordSingleUserInput = ({
         value={value.jyanshi}
         onChange={onChangeJyanshi}
         setToMyself={index === 0}
+        exceptIds={selectedJyanshis}
         fullWidth
       />
       {scoreType === "score" && (
