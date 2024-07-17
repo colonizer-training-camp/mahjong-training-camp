@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import {
-    Select as MuiSelect,
-    SelectRootSlotProps,
-    SelectType,
+  Select as MuiSelect,
+  SelectRootSlotProps,
+  SelectType,
 } from "@mui/base";
 import { IconChevronDown } from "@tabler/icons-react";
 import { forwardRef } from "react";
@@ -40,7 +40,7 @@ const SelectButton = forwardRef(
       <SelectButtonContainer {...rest} ref={ref}>
         <div>{rest.children}</div>
         <IconContainer>
-          <IconChevronDown />
+          <IconChevronDown size={18} />
         </IconContainer>
       </SelectButtonContainer>
     );

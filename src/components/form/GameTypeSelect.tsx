@@ -32,10 +32,12 @@ const Icon = ({
   game: GameTypeResponse;
   iconProps?: TablerIconsProps;
 }) => {
-  if (game.scoreType === "chips") return <IconPokerChip {...iconProps} />;
-  if (game.players === 4) return <IconSquareRotated {...iconProps} />;
-  if (game.players === 3) return <IconTriangleInverted {...iconProps} />;
-  return <IconMarquee {...iconProps} />;
+  if (game.scoreType === "chips")
+    return <IconPokerChip size={18} {...iconProps} />;
+  if (game.players === 4) return <IconSquareRotated size={18} {...iconProps} />;
+  if (game.players === 3)
+    return <IconTriangleInverted size={18} {...iconProps} />;
+  return <IconMarquee size={18} {...iconProps} />;
 };
 
 const GameTypeSelect = ({ value, onChange, setToDefault }: Props) => {

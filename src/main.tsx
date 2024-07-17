@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       styles={css`
         html {
           ${fontFamilies.milkyway}
+          font-size: 14px;
         }
       `}
     />

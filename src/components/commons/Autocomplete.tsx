@@ -169,14 +169,14 @@ const Autocomplete = forwardRef(
           />
           {hasClearIcon && (
             <IconContainer {...getClearProps()}>
-              <IconX />
+              <IconX size={18} />
             </IconContainer>
           )}
           <IconContainer
             {...getPopupIndicatorProps()}
             className={popupOpen ? "popupOpen" : undefined}
           >
-            <IconChevronDown />
+            <IconChevronDown size={18} />
           </IconContainer>
         </StyledAutocompleteRoot>
         {anchorEl ? (

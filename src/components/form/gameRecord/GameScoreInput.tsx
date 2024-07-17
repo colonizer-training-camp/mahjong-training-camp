@@ -7,12 +7,11 @@ import { fontFamilies } from "../../../styles/fonts";
 import { Space } from "../../Space";
 
 const ScoreBackground = styled.div`
+  position: relative;
   ${fontFamilies.oxanium}
   font-weight: 500;
   background-color: black;
   color: white;
-  display: flex;
-  align-items: baseline;
   font-size: 1.6em;
   border: 1px solid ${color.silkBlueLight};
 
@@ -38,12 +37,14 @@ const InputField = styled.input`
   border: none;
   color: inherit;
   text-align: right;
-  padding: 8px 0 8px 8px;
+  padding: 8px 1.7ch 8px 8px;
 `;
 
 const InputAdornment = styled.span`
-  flex: 0 0 32px;
+  position: absolute;
   user-select: none;
+  right: 0;
+  bottom: 24%;
 `;
 
 const ButtonsRow = styled.div`
@@ -93,6 +94,12 @@ const GameScoreInput = ({ value, onChange }: Props) => {
     }
   };
 
+  const handleFocus = () => {
+    if (internalValue === "0") {
+      setInternalValue("");
+    }
+  };
+
   const handleBlur = () => {
     setInternalValue(Math.floor(value / 100).toString());
   };
@@ -104,6 +111,7 @@ const GameScoreInput = ({ value, onChange }: Props) => {
           slots={{ root: InputRoot, input: InputField }}
           value={internalValue}
           onChange={(e) => handleChange(e.target.value)}
+          onFocus={handleFocus}
           onBlur={handleBlur}
         />
         <InputAdornment>00</InputAdornment>
