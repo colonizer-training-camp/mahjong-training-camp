@@ -51,15 +51,20 @@ const MainIconsContainer = styled.div`
   }
 `;
 
-const Menu = () => {
+interface Props {
+  hideActions?: string[];
+}
+
+const Menu = ({ hideActions = [] }: Props) => {
   const { user } = useAuth();
 
   return (
     <>
       <MenuContainer>
         <Icons>
-          {MENU_ITEMS.filter(({ authState, mainAction }) => {
+          {MENU_ITEMS.filter(({ authState, mainAction, link }) => {
             if (mainAction) return false;
+            if (hideActions.includes(link)) return false;
             if (authState === "logged-in") {
               return !!user;
             }
@@ -74,8 +79,9 @@ const Menu = () => {
       </MenuContainer>
       <MainIconsContainer>
         <Icons>
-          {MENU_ITEMS.filter(({ authState, mainAction }) => {
+          {MENU_ITEMS.filter(({ authState, mainAction, link }) => {
             if (!mainAction) return false;
+            if (hideActions.includes(link)) return false;
             if (authState === "logged-in") {
               return !!user;
             }

@@ -2,6 +2,7 @@ import {
   IconChartBar,
   IconChartLine,
   IconHistory,
+  IconHome,
   IconLogin,
   IconLogout,
   IconPlus,
@@ -16,13 +17,18 @@ export interface MenuItem {
 
 export const MENU_ITEMS: MenuItem[] = [
   {
+    icon: <IconHome />,
+    link: "/",
+  },
+  {
     icon: <IconLogin />,
     link: "/login",
+    mainAction: true,
     authState: "logged-out",
   },
   {
     icon: <IconPlus />,
-    link: "https://docs.google.com/spreadsheets/d/1chMD7-jIt8_4KSgcOZDkC_585h-DJU_VY4Z7b2vvvbk/edit#gid=822958200",
+    link: "/create",
     mainAction: true,
     authState: "logged-in",
   },

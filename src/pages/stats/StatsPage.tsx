@@ -35,7 +35,7 @@ const USER_LIST: UserInfo[] = [
 
 const Stats = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout title="통계">
       <Container>
         <StatsUserList users={USER_LIST} />
       </Container>

@@ -3,4 +3,5 @@ export interface UserResponse {
   loginId: string;
   displayName: string;
   isHost: boolean;
+  lastGameAt: string | null;
 }

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
-import { Header } from "../../../components/header/Header";
 import DefaultLayout from "../../../components/layouts/DefaultLayout";
 import { commons } from "../../../styles/commons";
 import { fontFamilies } from "../../../styles/fonts";
@@ -22,16 +21,6 @@ const CardFlexBox = styled.div`
   justify-content: center;
   position: relative;
   flex-direction: column;
-`;
-
-const HandleContainer = styled.div`
-  position: relative;
-  height: 16vh;
-  width: 80vh;
-  max-width: 90vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 `;
 
 const CardContainer = styled.div`
@@ -236,12 +225,9 @@ const UserStatsPage = () => {
   const { handle } = useParams();
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title={`${handle} 통계`}>
       <Container>
         <CardFlexBox>
-          <HandleContainer>
-            <Header>{handle}</Header>
-          </HandleContainer>
           <CardContainer>
             <StatsContainer>
               <GeneralStatsContainer>

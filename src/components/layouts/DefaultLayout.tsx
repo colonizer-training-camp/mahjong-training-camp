@@ -19,16 +19,20 @@ const BACKGROUND_IMAGES = {
 };
 
 interface Props {
+  title?: string;
   useTotalStats?: boolean;
   fullScreen?: boolean;
   backgroundImage?: keyof typeof BACKGROUND_IMAGES;
+  hideActions?: string[];
 }
 
 export const DefaultLayout = ({
+  title,
   children,
   useTotalStats,
   fullScreen,
   backgroundImage = "mahjong",
+  hideActions,
 }: PropsWithChildren<Props>) => {
   return (
     <>
@@ -58,8 +62,8 @@ export const DefaultLayout = ({
       ) : (
         children
       )}
-      <Menu />
-      <TitleLogo useTotalStats={useTotalStats} />
+      <Menu hideActions={hideActions} />
+      <TitleLogo title={title} useTotalStats={useTotalStats} />
     </>
   );
 };

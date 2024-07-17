@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const HistoryPage = () => {
   return (
-    <DefaultLayout backgroundImage="bomHello">
+    <DefaultLayout backgroundImage="bomHello" title="기록">
       <Container></Container>
     </DefaultLayout>
   );

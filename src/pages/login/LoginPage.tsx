@@ -8,6 +8,7 @@ import { ModalContents } from "../../components/modal/ModalContents";
 import { useAuth } from "../../contexts/AuthContext";
 import { color } from "../../styles/colors";
 import { commons } from "../../styles/commons";
+import { Button, Input } from "@mui/base";
 
 const LoginTextInput = styled.input`
   width: 100%;
@@ -58,7 +59,7 @@ const LoginPage = () => {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title="로그인">
       <Modal
         open={modalOpen}
         onDismiss={onDismiss}
@@ -66,8 +67,11 @@ const LoginPage = () => {
         disableCloseOnBackdropClick
       >
         <ModalContents>
-          <LoginTextInput
+          <Input
             type="text"
+            slots={{
+              input: LoginTextInput,
+            }}
             placeholder="아이디"
             value={idInput}
             onChange={(e) => setIdInput(e.target.value)}
@@ -78,8 +82,11 @@ const LoginPage = () => {
             }}
           />
           <Space h={8} />
-          <LoginTextInput
+          <Input
             type="password"
+            slots={{
+              input: LoginTextInput,
+            }}
             placeholder="비밀번호"
             value={pwInput}
             onChange={(e) => setPwInput(e.target.value)}
@@ -96,7 +103,14 @@ const LoginPage = () => {
             호스트에게 문의해 주시기 바랍니다.
           </LoginDescription>
           <Space h={16} />
-          <LoginButton onClick={handleTryLogin}>로그인</LoginButton>
+          <Button
+            onClick={handleTryLogin}
+            slots={{
+              root: LoginButton,
+            }}
+          >
+            로그인
+          </Button>
         </ModalContents>
       </Modal>
     </DefaultLayout>

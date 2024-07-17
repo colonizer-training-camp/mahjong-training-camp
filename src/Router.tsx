@@ -5,6 +5,7 @@ import LoginPage from "./pages/login/LoginPage";
 import LogoutPage from "./pages/logout/LogoutPage";
 import UserStatsPage from "./pages/stats/:handle/UserStatsPage";
 import StatsPage from "./pages/stats/StatsPage";
+import CreatePage from "./pages/create/CreatePage";
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/logout" element={<LogoutPage />} />
+        <Route path="/create" element={<CreatePage />} />
       </Routes>
     </BrowserRouter>
   );

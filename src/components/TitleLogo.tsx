@@ -4,10 +4,9 @@ import { Header } from "./header/Header";
 import { useAuth } from "../contexts/AuthContext";
 
 const TotalStatContainer = styled.div`
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
   left: 0;
   pointer-events: none;
@@ -65,12 +64,12 @@ const HeaderLink = styled(Link)`
 `;
 
 interface TotalStatProps {
+  title?: string;
   useTotalStats?: boolean;
 }
 
-const TitleLogo = (props: TotalStatProps) => {
+const TitleLogo = ({ title, useTotalStats }: TotalStatProps) => {
   const { user } = useAuth();
-  const { useTotalStats } = props;
 
   return (
     <TotalStatContainer>
@@ -80,7 +79,7 @@ const TitleLogo = (props: TotalStatProps) => {
           textDecoration: "none",
         }}
       >
-        <Header>{user?.displayName || "개척단 훈련소"}</Header>
+        <Header>{title || user?.displayName || "개척단 훈련소"}</Header>
       </HeaderLink>
       {useTotalStats && (
         <TotalStatWrapper>
