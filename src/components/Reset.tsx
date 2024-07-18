@@ -142,6 +142,7 @@ export const reset = css`
     outline: inherit;
   }
   input[type="text"],
+  input[type="number"],
   input[type="password"] {
     appearance: none;
     border-radius: 0;

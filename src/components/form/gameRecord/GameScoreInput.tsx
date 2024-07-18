@@ -108,6 +108,7 @@ const GameScoreInput = ({ value, onChange }: Props) => {
     <>
       <ScoreBackground>
         <Input
+          inputMode="numeric"
           slots={{ root: InputRoot, input: InputField }}
           value={internalValue}
           onChange={(e) => handleChange(e.target.value)}
@@ -122,13 +123,13 @@ const GameScoreInput = ({ value, onChange }: Props) => {
           slots={{ root: PlusminusButton }}
           onClick={() => onChange?.(value - 10000)}
         >
-          <IconMinus />
+          <IconMinus size={16} />
         </Button>
         <Button
           slots={{ root: PlusminusButton }}
           onClick={() => onChange?.(value + 10000)}
         >
-          <IconPlus />
+          <IconPlus size={16} />
         </Button>
       </ButtonsRow>
     </>
