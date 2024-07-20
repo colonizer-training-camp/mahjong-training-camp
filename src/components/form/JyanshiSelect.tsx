@@ -90,8 +90,6 @@ const JyanshiSelect = ({
             }
           : undefined
       }
-      // autoSelect
-      autoComplete
       autoHighlight
       filterSelectedOptions
     />

@@ -1,5 +1,8 @@
-import { Space } from "../Space";
+import styled from "@emotion/styled";
 
-export const TopBarPadding = () => {
-  return <Space h={96} />;
-};
+export const TopBarPadding = styled.div`
+  height: 96px;
+  @media screen and (max-width: 720px) {
+    height: 64px;
+  }
+`;

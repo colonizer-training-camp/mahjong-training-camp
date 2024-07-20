@@ -28,6 +28,12 @@ const HeaderBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 720px) {
+    min-height: 48px;
+    font-size: 1.5rem;
+    padding: 8px 120px 8px 16px;
+  }
 `;
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}

@@ -17,6 +17,10 @@ const TotalStatContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   padding: 32px 0;
+
+  @media screen and (max-width: 720px) {
+    padding: 16px 0;
+  }
 `;
 
 const TotalStatWrapper = styled.div`

@@ -11,6 +11,10 @@ const FullScreenContainer = styled.div`
   height: calc(100vh - 72px);
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 720px) {
+    height: calc(100vh - 48px);
+  }
 `;
 
 const BACKGROUND_IMAGES = {

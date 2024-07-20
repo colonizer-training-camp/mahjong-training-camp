@@ -9,6 +9,7 @@ import { fontFamilies } from "../../../styles/fonts";
 import { Space } from "../../Space";
 import { IconCheckbox, IconSquare } from "@tabler/icons-react";
 import GameScoreInput from "./GameScoreInput";
+import GameChipInput from "./GameChipInput";
 
 const InputCard = styled.div<{ oya: boolean }>`
   background-image: linear-gradient(
@@ -118,6 +119,9 @@ const GameRecordSingleUserInput = ({
       />
       {scoreType === "score" && (
         <GameScoreInput value={value.score} onChange={onChangeScore} />
+      )}
+      {scoreType === "chips" && (
+        <GameChipInput value={value.score} onChange={onChangeScore} />
       )}
     </InputCard>
   );
